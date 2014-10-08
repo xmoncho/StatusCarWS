@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://ferromex.com/statusCarWS/services" 
+            xmlns:account="http://webservices.samples.blog.com" 
+            targetNamespace="http://ferromex.com/statusCarWS/services" 
+            elementFormDefault="qualified">
+
+  <xsd:complexType name="statusCarResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="eStatus" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="statusCarRequest">
+    <xsd:sequence>
+      <xsd:element name="city" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="initial" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="number" type="xsd:int"/>
+      <xsd:element name="state" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:simpleType name="eStatus">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RELEASED"/>
+      <xsd:enumeration value="NO_LOGISTIC"/>
+      <xsd:enumeration value="IN_LOGISTIC_POOL"/>
+      <xsd:enumeration value="IN_LOGISTIC_IC"/>
+      <xsd:enumeration value="IN_LOGISTIC_OV"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>
+
